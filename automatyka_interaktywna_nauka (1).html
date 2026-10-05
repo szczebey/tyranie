@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#111418">
+<meta name="description" content="Interaktywna nauka podstaw automatyki: 31 pełnych definicji, fiszki, quiz i pytania problemowe.">
+<title>Automatyka · Nauka interaktywna</title>
+<style>
+:root{color-scheme:dark;--bg:#111418;--sidebar:#15191e;--surface:#1b2027;--surface-high:#232a33;--line:#303741;--text:#f2f4f7;--muted:#a4aebc;--accent:#d2f47c;--accent-ink:#17210c;--green:#a4e3b7;--red:#ffb1aa;--radius:20px}
+*{box-sizing:border-box}[hidden]{display:none!important}html{font-size:16px}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;line-height:1.5}button,input,select{font:inherit}button{cursor:pointer}button,select,input,summary,a{-webkit-tap-highlight-color:transparent}button{color:inherit}button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible,a:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--accent);outline-offset:5px}button:disabled{cursor:default}button:disabled:not(.good):not(.bad){opacity:.7}h1,h2,h3,p{margin:0}h1,h2,h3{font-weight:650}h1{font-size:clamp(2rem,3.3vw,2.75rem);letter-spacing:-.045em;line-height:1.12}h2{font-size:1.45rem;letter-spacing:-.025em}h3{font-size:1.15rem;letter-spacing:-.02em}.icon{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}.sprite{position:absolute;width:0;height:0;overflow:hidden}.mono{font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;font-variant-numeric:tabular-nums}.eyebrow{font-size:.75rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}.muted{color:var(--muted)}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.skip-link{position:fixed;z-index:10;top:8px;left:8px;transform:translateY(-150%);padding:12px 18px;background:var(--accent);color:var(--accent-ink);border-radius:8px}.skip-link:focus{transform:translateY(0)}
+.sidebar{width:248px;position:fixed;inset:0 auto 0 0;background:var(--sidebar);border-right:1px solid var(--line);padding:35px 20px 24px;display:flex;flex-direction:column;z-index:3;overflow-y:auto}.brand{display:flex;align-items:center;gap:12px;padding:0 10px}.brand-mark{width:40px;height:40px;display:grid;place-items:center;background:var(--accent);color:var(--accent-ink);border-radius:12px}.brand-mark .icon{width:25px;height:25px;stroke-width:2}.brand-name{font-size:1.05rem;letter-spacing:-.035em;font-weight:750}.brand-sub{display:block;font-size:.75rem;color:var(--muted);margin-top:2px}.nav-label{margin:47px 14px 15px}.tabs{display:grid;gap:7px}.nav-btn{display:flex;align-items:center;gap:13px;min-height:48px;width:100%;border:1px solid transparent;background:transparent;padding:12px 14px;border-radius:11px;text-align:left;color:var(--muted);font-weight:500;font-size:.9375rem;transition:background .18s,color .18s}.nav-btn:hover{background:#20262d;color:var(--text)}.nav-btn.active{background:#283125;border-color:#3a4930;color:var(--accent)}.nav-index{margin-left:auto;font-size:.75rem;opacity:.7}.sidebar-foot{margin:auto 12px 0;padding-top:40px}.set-line{height:1px;background:var(--line);margin-bottom:22px}.set-total{display:flex;align-items:baseline;gap:12px;margin-top:10px}.set-total strong{font-size:2.5rem;font-weight:550;letter-spacing:-.06em;line-height:1.2;color:var(--text)}.set-total span{font-size:.875rem;color:var(--muted)}.set-details{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.75rem;color:var(--muted);margin-top:13px}.set-details b{color:var(--text);font-weight:500}.main{margin-left:248px;min-height:100vh;padding:31px clamp(24px,4.5vw,76px) 36px}.main-inner{max-width:1080px;margin:auto}.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:27px;margin-bottom:31px;border-bottom:1px solid var(--line)}.breadcrumb{display:flex;align-items:center;gap:12px;font-size:.8125rem;color:var(--muted)}.breadcrumb span:last-child{color:#d5dbe4}.breadcrumb .slash{color:#5f6b7c}.subject-tag{font-size:.75rem;color:var(--accent);border:1px solid #3d4a2f;border-radius:30px;padding:6px 12px;white-space:nowrap}.page-heading{margin-bottom:31px}.page-heading h1{margin-bottom:10px}.page-heading p{color:var(--muted);font-size:.9375rem;line-height:1.6;max-width:720px}.panel{display:none}.panel.active{display:block}.panel[hidden]{display:none}.toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:21px}.select-wrap{display:flex;align-items:center;gap:13px}.select-wrap label{color:var(--muted);font-size:.8125rem}.select-wrap select{appearance:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--text);padding:11px 13px;max-width:100%;font-size:.875rem}.deck-note{display:flex;align-items:center;gap:7px;color:var(--muted);font-size:.8125rem}.deck-note .icon{width:16px;height:16px;color:var(--accent)}
+.flash{position:relative;display:flex;flex-direction:column;min-height:360px;border:1px solid #3c4653;border-radius:var(--radius);background:linear-gradient(115deg,#232b35,#1b2129 70%);padding:26px 31px;cursor:pointer;overflow-wrap:anywhere;box-shadow:0 20px 45px #00000017;transition:background .2s,border-color .2s}.flash:hover{border-color:#718057}.flash-meta{display:flex;align-items:center;justify-content:space-between;gap:20px;width:100%}.flash-label{display:inline-flex;gap:8px;align-items:center;font-size:.75rem;font-weight:600;letter-spacing:.12em;color:var(--accent);text-transform:uppercase}.flash-label .icon{width:15px;height:15px}.flash-count{font-size:.8125rem;color:var(--muted)}.flash-text{display:flex;align-items:center;justify-content:center;flex:1;text-align:center;font-size:clamp(1.8rem,3.6vw,3.05rem);letter-spacing:-.035em;line-height:1.22;font-weight:560;padding:45px 10px;user-select:none}.flash.definition{border-color:#596b3d;background:linear-gradient(115deg,#252e27,#1c2422 80%)}.flash.definition .flash-text{font-size:clamp(1.125rem,1.65vw,1.425rem);font-weight:400;letter-spacing:-.012em;line-height:1.75;text-align:left;display:block;padding:28px 0 32px;user-select:text}.flash-hint{font-size:.8125rem;display:flex;justify-content:center;align-items:center;gap:8px;color:var(--muted)}.flash-hint .icon{width:15px;height:15px}.flash-controls{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;margin:22px 0 28px;align-items:center}.button{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:46px;border-radius:11px;background:var(--surface-high);border:1px solid #38414b;padding:12px 20px;font-size:.875rem;font-weight:600;line-height:1.35;transition:background .15s,border-color .15s,transform .15s}.button:hover{background:#2b333e;border-color:#53616f}.button:active{transform:translateY(1px)}.button.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);min-width:182px}.button.primary:hover{background:#e0ff98;border-color:#e0ff98}.button.ghost{background:transparent;border-color:transparent;color:#c1cad6}.button.ghost:hover{background:var(--surface)}.flash-controls>button:first-child{justify-self:start}.flash-controls>button:last-child{justify-self:end}.progress-caption{display:flex;justify-content:space-between;gap:12px;color:var(--muted);font-size:.75rem;margin-bottom:9px}.track{height:4px;background:#2c343e;border-radius:10px;overflow:hidden}.bar{height:100%;background:var(--accent);width:0;transition:width .25s}.keyboard-help{display:flex;align-items:center;justify-content:center;gap:16px;font-size:.75rem;color:#99a5b5;margin-top:27px}.keyboard-help span{display:flex;align-items:center;gap:6px}kbd{font:inherit;font-size:.75rem;border:1px solid #3b4450;border-bottom-width:2px;background:#1c2229;border-radius:5px;padding:1px 6px;color:#c1cad6}.page-foot{display:flex;align-items:center;justify-content:space-between;gap:16px;color:#98a4b4;font-size:.75rem;margin-top:40px;padding-top:22px;border-top:1px solid var(--line)}.page-foot span:first-child{display:flex;align-items:center;gap:8px}.page-foot .icon{width:14px;height:14px}
+.surface{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:28px}.quiz-top{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:18px}.score{padding:7px 12px;background:#293224;border:1px solid #3a482f;color:var(--accent);border-radius:8px;font-size:.8125rem;font-weight:550}.quiz-question{font-size:clamp(1.35rem,2.1vw,1.8rem);line-height:1.4;letter-spacing:-.025em;margin:30px 0 26px;max-width:800px}.answers{display:grid;grid-template-columns:1fr 1fr;gap:12px}.answer{display:flex;align-items:center;gap:14px;text-align:left;background:#222932;border:1px solid #38434f;border-radius:12px;padding:17px;font-size:.9375rem;line-height:1.5;min-height:74px}.answer:not(:disabled):hover{background:#2b342e;border-color:#779752}.answer-letter{display:grid;place-items:center;flex-shrink:0;width:30px;height:30px;font-size:.75rem;border:1px solid #536071;border-radius:7px;color:#c1cad6}.answer.good{background:#203a2c;border-color:#75bc91;color:#ceefd9}.answer.bad{background:#3e2828;border-color:#d5877e;color:#ffcbc6}.answer.good .answer-letter{border-color:#75bc91;color:#ceefd9}.answer.bad .answer-letter{border-color:#d5877e;color:#ffcbc6}.feedback{margin-top:22px;padding:18px;border-radius:11px;line-height:1.7;font-size:.9375rem;background:#242d32;border:1px solid #3e4e59}.feedback:empty{display:none}.feedback[data-result="good"]{background:#203128;border-color:#3f694f;color:#c8ead2}.feedback[data-result="bad"]{background:#362727;border-color:#735047;color:#f1cfcb}.feedback strong{display:block;margin-bottom:3px}.quiz-definition{margin-top:16px;padding:17px 20px;border-left:2px solid #697d4d;background:#20272a;border-radius:0 10px 10px 0;line-height:1.75;font-size:.9375rem}.quiz-definition small{font-size:.75rem;color:var(--accent);text-transform:uppercase;letter-spacing:.09em}.quiz-definition p{margin-top:8px}.quiz-actions{display:flex;justify-content:flex-end;margin-top:22px}.quiz-actions:has(button[hidden]){display:none}.quiz-summary-number{font-size:3.3rem;line-height:1.1;color:var(--accent);margin-bottom:13px;letter-spacing:-.055em}
+.search-row{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:22px}.search-wrap{display:flex;align-items:center;gap:12px;flex:1;max-width:560px;background:var(--surface);border:1px solid #414c59;border-radius:12px;padding:13px 16px}.search-wrap:focus-within{border-color:var(--accent)}.search-wrap .icon{color:var(--muted);width:19px}.search-wrap input{width:100%;min-width:0;border:0;outline:0;background:transparent;color:var(--text);font-size:.9375rem}.search-wrap input::placeholder{color:#97a5b6}.result-count{color:var(--muted);font-size:.8125rem;white-space:nowrap}.definitions-list{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#191e25}.definition-item{display:grid;grid-template-columns:38px 1fr;column-gap:20px;padding:24px 28px;border-bottom:1px solid var(--line)}.definition-item:last-child{border-bottom:0}.term-number{font-size:.8125rem;color:#9eb284;padding-top:3px}.definition-item h3{color:var(--text);margin-bottom:9px}.definition-item p{color:#c4cdd8;line-height:1.85;font-size:1rem;overflow-wrap:anywhere}.empty{padding:40px;text-align:center;color:var(--muted)}.problem{background:var(--surface);border:1px solid var(--line);border-radius:14px;margin-bottom:12px;overflow:hidden}.problem[open]{border-color:#556442}.problem summary{display:flex;align-items:center;gap:17px;padding:23px;cursor:pointer;list-style:none;font-size:1rem;font-weight:550;line-height:1.55}.problem summary::-webkit-details-marker{display:none}.problem summary:hover{background:#232931}.question-index{flex-shrink:0;color:var(--accent);font-size:.8125rem;font-weight:400}.problem .plus{margin-left:auto;width:19px;min-width:19px;color:var(--muted);transition:transform .2s}.problem[open] .plus{transform:rotate(45deg);color:var(--accent)}.problem-answer{border-top:1px solid var(--line);padding:22px 25px 26px 64px;color:#cbd4de;font-size:1rem;line-height:1.85}.scenario-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.scenario{padding:25px;background:var(--surface);border:1px solid var(--line);border-radius:17px}.scenario.wide{grid-column:1/-1}.scenario-meta{display:flex;gap:10px;align-items:center;margin-bottom:13px}.scenario-meta .number{color:var(--accent);font-size:.8125rem}.scenario h2{font-size:1.3rem;margin-bottom:12px;line-height:1.4}.scenario p{color:#c0cad6;line-height:1.8;font-size:.9375rem}.loop-diagram{margin:25px 0 18px}.loop-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.loop-node{position:relative;background:#232d34;border:1px solid #45535b;border-radius:10px;padding:14px 12px}.loop-node small{display:block;color:var(--muted);font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:7px}.loop-node strong{font-size:1.1rem;font-weight:500;line-height:1.4;display:block}.loop-node:first-child strong,.loop-node:last-child strong{color:var(--accent);font-size:1.4rem}.loop-return{margin:0 12% 0 37%;padding:12px 0 8px;border:1px dashed #6f8950;border-top:0;border-radius:0 0 12px 12px;text-align:center;color:#b5c9a0;font-size:.75rem}.loop-return .icon{vertical-align:middle;width:15px;height:15px;margin-right:4px}.scenario-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.tag{font-size:.75rem;padding:5px 10px;border-radius:7px;border:1px solid #48553b;background:#283025;color:#d0debd}.compare{display:grid;gap:12px;margin-top:15px}.compare-line{border-left:2px solid #7e9961;padding-left:13px}.compare-line strong{color:#e3ebda;font-size:.875rem}.compare-line p{margin-top:4px}.recap-note{display:flex;gap:12px;align-items:flex-start;border:1px solid #455338;border-radius:12px;background:#232a20;padding:16px 18px;margin-bottom:22px;color:#c9d7bc;font-size:.875rem;line-height:1.7}.recap-note .icon{margin-top:3px;color:var(--accent);width:18px}.recap-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.recap-item{background:var(--surface);border:1px solid var(--line);padding:21px 23px;border-radius:13px}.recap-item h3{font-size:.9375rem;margin-bottom:8px;color:var(--accent)}.recap-item p{font-size:.9375rem;color:#c4cdd8;line-height:1.7}.reveal{animation:reveal .2s ease-out}@keyframes reveal{from{opacity:.65;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+@media(min-width:1500px){.main{padding-top:40px}.page-heading{margin-bottom:36px}.flash{min-height:400px}}
+@media(max-width:1100px){.sidebar{width:218px;padding-left:14px;padding-right:14px}.main{margin-left:218px;padding-left:28px;padding-right:28px}.brand{padding-left:6px}.brand-sub{font-size:.75rem}.deck-note{display:none}.flash{min-height:350px}.loop-steps{gap:8px}.loop-node{padding:13px 10px}.loop-node strong{font-size:.9375rem}}
+@media(max-width:850px){.sidebar{position:relative;width:100%;padding:20px 24px 0;border-right:0;border-bottom:1px solid var(--line);overflow:visible}.brand{padding:0}.brand-mark{width:35px;height:35px;border-radius:10px}.brand-name{font-size:1rem}.brand-sub{font-size:.75rem}.nav-label,.sidebar-foot{display:none}.tabs{display:flex;gap:4px;overflow-x:auto;margin:17px -8px 0;padding:0 8px 12px;scrollbar-width:thin;scrollbar-color:#536344 transparent}.nav-btn{width:auto;flex-shrink:0;min-height:42px;gap:8px;padding:9px 12px;font-size:.8125rem}.nav-btn .icon{width:17px;height:17px}.nav-index{display:none}.main{margin-left:0;padding:24px 26px 30px}.topbar{padding-bottom:19px;margin-bottom:23px}.subject-tag{padding:4px 10px}.page-heading{margin-bottom:24px}.flash{min-height:330px}.keyboard-help{margin-top:23px}.page-foot{margin-top:30px}}
+@media(max-width:540px){.sidebar{padding:16px 18px 0}.brand-sub{display:none}.tabs{margin-top:13px;padding-bottom:10px}.nav-btn{padding:9px 10px;font-size:.75rem}.nav-btn .icon{width:16px;height:16px}.main{padding:22px 18px 28px}.topbar{display:none}.page-heading{margin-bottom:23px}.page-heading h1{font-size:2rem;margin-bottom:8px}.page-heading p{font-size:.875rem}.toolbar{margin-bottom:16px}.select-wrap{width:100%;gap:9px;justify-content:space-between}.select-wrap label{font-size:.75rem}.select-wrap select{font-size:.8125rem;padding:10px;max-width:calc(100% - 83px)}.flash{min-height:290px;padding:21px 21px;border-radius:17px}.flash-label{font-size:.75rem;letter-spacing:.1em}.flash-count{font-size:.75rem}.flash-text{font-size:1.9rem;padding:34px 0;line-height:1.3}.flash.definition .flash-text{font-size:1.125rem;line-height:1.7;padding:24px 0}.flash-hint{font-size:.75rem;line-height:1.6}.flash-controls{gap:5px;margin-top:17px;margin-bottom:23px}.button{font-size:.8125rem;padding:12px;min-height:46px;border-radius:9px}.button.primary{min-width:142px}.button.ghost{padding:10px 5px;gap:2px;font-size:.75rem}.button.ghost .icon{width:15px;height:15px}.keyboard-help{display:none}.page-foot{font-size:.75rem;gap:7px;align-items:flex-start;margin-top:27px}.page-foot>span:last-child{max-width:95px;text-align:right}.surface{padding:21px 18px;border-radius:16px}.quiz-question{margin-top:25px;font-size:1.35rem}.answers{grid-template-columns:1fr;gap:10px}.answer{padding:14px;font-size:.875rem;min-height:64px}.quiz-top .eyebrow{font-size:.75rem;letter-spacing:.08em}.score{font-size:.75rem}.quiz-definition{padding:15px;font-size:.875rem}.feedback{padding:15px;font-size:.875rem}.search-row{flex-direction:column;align-items:stretch;gap:12px}.search-wrap{padding:12px 14px}.search-wrap input{font-size:.875rem}.result-count{text-align:right;font-size:.75rem}.definition-item{padding:21px 18px;grid-template-columns:22px 1fr;gap:12px}.definition-item h3{font-size:1.0625rem}.definition-item p{font-size:.9375rem;line-height:1.8}.term-number{font-size:.75rem}.problem summary{padding:18px 16px;font-size:.9375rem;gap:11px;align-items:flex-start}.question-index{font-size:.75rem;margin-top:2px}.problem .plus{margin-top:3px}.problem-answer{padding:18px;font-size:.9375rem;line-height:1.8}.scenario-grid,.recap-grid{grid-template-columns:1fr;gap:13px}.scenario{padding:21px 18px}.scenario h2{font-size:1.2rem}.loop-steps{grid-template-columns:1fr 1fr;gap:10px}.loop-node strong{font-size:1rem}.loop-return{margin:0;padding:13px 9px 0;border:0;color:#c1d3af;font-size:.75rem}.recap-item{padding:19px}.recap-note{font-size:.8125rem}.recap-note .icon{min-width:18px}}
+@media(max-width:350px){.main{padding-left:12px;padding-right:12px}.flash-controls{grid-template-columns:1fr 1fr}.flash-controls>.primary{grid-column:1/-1;grid-row:1}.flash-controls>button:first-child{grid-row:2}.flash-controls>button:last-child{grid-row:2}.select-wrap{align-items:flex-start;flex-direction:column}.select-wrap select{max-width:100%;width:100%}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+@media(max-width:540px){.flash-controls{grid-template-columns:46px minmax(0,1fr) 46px;gap:10px}.flash-controls .control-label{display:none}.flash-controls .ghost{width:46px;padding:12px;border:1px solid var(--line);background:var(--surface)}.flash-controls .ghost .icon{width:20px;height:20px}.flash-controls .primary{width:100%;min-width:0;grid-column:auto;grid-row:auto}.flash-controls>button:first-child,.flash-controls>button:last-child{grid-row:auto}.nav-btn{font-size:.875rem}.select-wrap label{font-size:.8125rem}.button{font-size:.875rem}}
+@media print{body{color:#111;background:#fff}.sidebar,.topbar,.page-heading,.page-foot,.search-row,.panel:not(#definicje){display:none!important}.main{margin:0;padding:0}#definicje{display:block!important}.definitions-list{border:0;background:#fff}.definition-item{break-inside:avoid;border-color:#ddd}.definition-item h3,.definition-item p,.term-number{color:#111}}
+</style>
+</head>
+<body>
+<svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+<symbol id="i-wave" viewBox="0 0 24 24"><path d="M3 12h4l3-7 4 14 3-7h4"/></symbol>
+<symbol id="i-cards" viewBox="0 0 24 24"><rect x="7" y="7" width="14" height="14" rx="3"/><path d="M17 7V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h2"/></symbol>
+<symbol id="i-quiz" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><path d="m9 12 2 2 4-4"/></symbol>
+<symbol id="i-nodes" viewBox="0 0 24 24"><rect x="3" y="3" width="6" height="6" rx="1.5"/><rect x="15" y="15" width="6" height="6" rx="1.5"/><path d="M9 6h6a3 3 0 0 1 3 3v6M6 9v6a3 3 0 0 0 3 3h6"/></symbol>
+<symbol id="i-book" viewBox="0 0 24 24"><path d="M12 5c-3-2-6-2-10-1v15c4-1 7-1 10 1 3-2 6-2 10-1V4c-4-1-7-1-10 1v15"/></symbol>
+<symbol id="i-message" viewBox="0 0 24 24"><path d="M21 11a8 8 0 0 1-8 8H6l-4 3V11a9 9 0 0 1 19 0Z"/><path d="M7 10h10M7 14h6"/></symbol>
+<symbol id="i-bolt" viewBox="0 0 24 24"><path d="m13 2-9 12h7l-1 8 10-13h-8l1-7Z"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+<symbol id="i-flip" viewBox="0 0 24 24"><path d="M4 8a9 9 0 0 1 15-3l2 3M21 3v5h-5M20 16a9 9 0 0 1-15 3l-2-3M3 21v-5h5"/></symbol>
+<symbol id="i-left" viewBox="0 0 24 24"><path d="m14 6-6 6 6 6"/></symbol>
+<symbol id="i-right" viewBox="0 0 24 24"><path d="m10 6 6 6-6 6"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="7.5"/><path d="m16 16 5 5"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7v.5"/></symbol>
+</defs></svg>
+<a class="skip-link" href="#main">Przejdź do nauki</a>
+<aside class="sidebar" aria-label="Nawigacja zestawu">
+ <div class="brand"><span class="brand-mark"><svg class="icon" aria-hidden="true"><use href="#i-wave"/></svg></span><div class="brand-name">Automatyka<span class="brand-sub">Podstawy sterowania</span></div></div>
+ <p class="nav-label eyebrow">Tryby nauki</p>
+ <nav class="tabs" role="tablist" aria-label="Tryby nauki">
+  <button type="button" class="nav-btn active" id="tab-fiszki" data-tab="fiszki" role="tab" aria-selected="true" aria-controls="fiszki"><svg class="icon" aria-hidden="true"><use href="#i-cards"/></svg>Fiszki<span class="nav-index mono">01</span></button>
+  <button type="button" class="nav-btn" id="tab-quiz" data-tab="quiz" role="tab" aria-selected="false" aria-controls="quiz" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#i-quiz"/></svg>Quiz<span class="nav-index mono">02</span></button>
+  <button type="button" class="nav-btn" id="tab-scenki" data-tab="scenki" role="tab" aria-selected="false" aria-controls="scenki" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#i-nodes"/></svg>Scenki<span class="nav-index mono">03</span></button>
+  <button type="button" class="nav-btn" id="tab-definicje" data-tab="definicje" role="tab" aria-selected="false" aria-controls="definicje" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg>Pełne definicje<span class="nav-index mono">04</span></button>
+  <button type="button" class="nav-btn" id="tab-pytania" data-tab="pytania" role="tab" aria-selected="false" aria-controls="pytania" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#i-message"/></svg>Pytania<span class="nav-index mono">05</span></button>
+  <button type="button" class="nav-btn" id="tab-powtorka" data-tab="powtorka" role="tab" aria-selected="false" aria-controls="powtorka" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#i-bolt"/></svg>Powtórka<span class="nav-index mono">06</span></button>
+ </nav>
+ <div class="sidebar-foot"><div class="set-line"></div><p class="eyebrow">Twój materiał</p><div class="set-total"><strong>31</strong><span>pełnych definicji</span></div><div class="set-details"><span><b>6</b> pytań problemowych</span><span><b>10</b> pytań quizu</span></div></div>
+</aside>
+<main id="main" class="main" tabindex="-1"><div class="main-inner">
+ <div class="topbar"><div class="breadcrumb"><span>Automatyka</span><span class="slash">/</span><span id="breadcrumbMode">Fiszki</span></div><span class="subject-tag">Podstawy sterowania</span></div>
+ <header class="page-heading"><h1 id="pageTitle">Fiszki</h1><p id="pageDescription">Przypomnij sobie definicję. Odwróć kartę i sprawdź odpowiedź.</p></header>
+ <section id="fiszki" class="panel active" role="tabpanel" aria-labelledby="tab-fiszki">
+  <div class="toolbar"><div class="select-wrap"><label for="flashDeck">Zestaw fiszek</label><select id="flashDeck"><option value="definitions">Pełne definicje · 31</option><option value="problems">Pytania problemowe · 6</option><option value="all">Cały materiał · 37</option></select></div><span class="deck-note"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Pełna treść z notatek</span></div>
+  <div id="flashcard" class="flash" role="button" tabindex="0" aria-label="Odwróć fiszkę" aria-pressed="false" aria-describedby="flashHint">
+   <div class="flash-meta"><span class="flash-label"><svg class="icon" aria-hidden="true"><use href="#i-cards"/></svg><span id="flashSide">Pojęcie</span></span><span class="flash-count mono" id="flashCount">01 / 31</span></div>
+   <div class="flash-text" id="flashText">Automatyka</div>
+   <div class="flash-hint" id="flashHint"><svg class="icon" aria-hidden="true"><use href="#i-flip"/></svg><span id="flashHintText">Kliknij kartę, aby zobaczyć pełną definicję</span></div>
+  </div>
+  <div class="flash-controls"><button type="button" class="button ghost" id="prevFlash" aria-label="Poprzednia fiszka"><svg class="icon" aria-hidden="true"><use href="#i-left"/></svg><span class="control-label">Poprzednia</span></button><button type="button" class="button primary" id="flipButton">Pokaż definicję</button><button type="button" class="button ghost" id="nextFlash" aria-label="Następna fiszka"><span class="control-label">Następna</span><svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></button></div>
+  <div class="progress-caption"><span>Pozycja w zestawie</span><span class="mono" id="flashPosition">1 z 31</span></div><div class="track" role="progressbar" id="flashProgress" aria-label="Pozycja w zestawie" aria-valuemin="1" aria-valuemax="31" aria-valuenow="1"><div class="bar" id="flashBar" style="width:3.23%"></div></div>
+  <div class="keyboard-help"><span><kbd>Spacja</kbd> odwróć kartę</span><span><kbd>←</kbd><kbd>→</kbd> zmień fiszkę</span></div>
+ </section>
+ <section id="quiz" class="panel" role="tabpanel" aria-labelledby="tab-quiz" hidden><div class="surface">
+  <div class="quiz-top"><span class="eyebrow mono" id="quizPosition">Pytanie 01 / 10</span><span class="score" id="score">Wynik: 0 / 0</span></div><div class="track"><div class="bar" id="quizBar"></div></div>
+  <h2 class="quiz-question" id="quizQ"></h2><div class="answers" id="quizAnswers"></div><div class="feedback" id="quizFeedback" aria-live="polite"></div><div id="quizDefinitions"></div><div class="quiz-actions"><button type="button" class="button primary" id="nextQ" hidden>Następne pytanie</button></div>
+ </div></section>
+ <section id="scenki" class="panel" role="tabpanel" aria-labelledby="tab-scenki" hidden><div class="scenario-grid">
+  <article class="scenario wide"><div class="scenario-meta"><span class="number mono">01</span><span class="eyebrow">Układ zamknięty</span></div><h2>Termostat w pokoju</h2><p>Ustawiasz 22°C. Czujnik mierzy 19°C. Regulator zwiększa moc grzejnika.</p><div class="loop-diagram" role="img" aria-label="Wartość zadana 22 stopnie, regulator, obiekt: grzejnik i pokój, pomiar 19 stopni. Informacja o zmierzonej temperaturze wraca do regulatora."><div class="loop-steps"><div class="loop-node"><small>01 · Wartość zadana</small><strong>22°C</strong></div><div class="loop-node"><small>02 · Regulator</small><strong>Zwiększa moc</strong></div><div class="loop-node"><small>03 · Obiekt</small><strong>Grzejnik + pokój</strong></div><div class="loop-node"><small>04 · Pomiar</small><strong>19°C</strong></div></div><div class="loop-return"><svg class="icon" aria-hidden="true"><use href="#i-flip"/></svg>Pomiar wraca do regulatora</div></div><div class="scenario-tags"><span class="tag">Uchyb = 3°C</span><span class="tag">Układ zamknięty</span><span class="tag">Sprzężenie zwrotne</span></div></article>
+  <article class="scenario"><div class="scenario-meta"><span class="number mono">02</span><span class="eyebrow">Zakłócenie</span></div><h2>Ktoś otwiera okno</h2><p>Temperatura zaczyna spadać mimo pracy grzejnika. Otwarte okno jest tutaj <b>zakłóceniem</b>. Regulator widzi spadek temperatury i zwiększa sterowanie.</p></article>
+  <article class="scenario"><div class="scenario-meta"><span class="number mono">03</span><span class="eyebrow">Układ otwarty</span></div><h2>Grzałka działa przez 5 minut</h2><p>Jeżeli nie mierzy temperatury i tylko działa według czasu, to jest <b>układ otwarty</b>. Nie wie, czy osiągnął właściwą temperaturę.</p></article>
+  <article class="scenario"><div class="scenario-meta"><span class="number mono">04</span><span class="eyebrow">Dynamika obiektu</span></div><h2>Duża stała czasowa</h2><p>Zmiana wejścia powoduje powolną zmianę wyjścia. Obiekt reaguje wolno. To typowe np. dla ogrzewania dużego zbiornika wody.</p></article>
+  <article class="scenario"><div class="scenario-meta"><span class="number mono">05</span><span class="eyebrow">Ważna różnica</span></div><h2>Inercja a opóźnienie</h2><div class="compare"><div class="compare-line"><strong>Inercja</strong><p>Reakcja zaczyna się, ale narasta stopniowo.</p></div><div class="compare-line"><strong>Opóźnienie transportowe</strong><p>Przez pewien czas nie ma reakcji. Pojawia się ona dopiero później.</p></div></div></article>
+ </div></section>
+ <section id="definicje" class="panel" role="tabpanel" aria-labelledby="tab-definicje" hidden><div class="search-row"><label class="search-wrap" for="definitionSearch"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg><span class="sr-only">Szukaj pojęcia lub słowa w definicji</span><input type="search" id="definitionSearch" placeholder="Szukaj pojęcia lub słowa…" autocomplete="off"></label><span class="result-count mono" id="definitionCount" aria-live="polite">31 / 31 pojęć</span></div><div class="definitions-list" id="definitionsList"></div></section>
+ <section id="pytania" class="panel" role="tabpanel" aria-labelledby="tab-pytania" hidden><div id="problemsList"></div></section>
+ <section id="powtorka" class="panel" role="tabpanel" aria-labelledby="tab-powtorka" hidden><div class="recap-note"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg><p>To hasła do szybkiej powtórki. Pełna treść znajduje się w fiszkach i zakładce „Pełne definicje”.</p></div><div class="recap-grid" id="recapList"></div></section>
+ <footer class="page-foot"><span><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg>Na podstawie Twoich notatek</span><span>Automatyka · podstawy</span></footer>
+</div></main>
+<noscript><p style="padding:24px">Włącz JavaScript w przeglądarce, aby korzystać z fiszek, quizu i listy definicji.</p></noscript>
+<script>
+const definitions = [
+  [
+    "Automatyka",
+    "Dziedzina nauki i techniki zajmująca się teorią oraz praktyczną realizacją urządzeń i układów służących do samoczynnego sterowania i regulacji procesów."
+  ],
+  [
+    "Obiekt",
+    "Urządzenie, maszyna albo proces, w którym zachodzą określone przemiany fizyczne, chemiczne, energetyczne lub informacyjne i którym chcemy sterować."
+  ],
+  [
+    "Otoczenie",
+    "Wszystko, co znajduje się poza obiektem i może na niego oddziaływać albo odbierać skutki jego działania."
+  ],
+  [
+    "Wielkości wejściowe",
+    "Wielkości fizyczne lub informacje, za pomocą których otoczenie oddziałuje na obiekt."
+  ],
+  [
+    "Wielkości wyjściowe",
+    "Wielkości, za pomocą których obiekt oddziałuje na otoczenie lub informuje o przebiegu zachodzącego w nim procesu."
+  ],
+  [
+    "Sterowanie",
+    "Celowe oddziaływanie na obiekt w taki sposób, aby uzyskać pożądany przebieg procesu."
+  ],
+  [
+    "Zadanie sterowania",
+    "Pożądany sposób zachowania się obiektu lub wartość, którą chcemy osiągnąć."
+  ],
+  [
+    "Sterowanie ręczne",
+    "Sterowanie, w którym człowiek bezpośrednio podejmuje decyzję i zmienia działanie obiektu."
+  ],
+  [
+    "Sterowanie automatyczne",
+    "Sterowanie realizowane przez urządzenie lub układ bez bezpośredniego, ciągłego udziału człowieka."
+  ],
+  [
+    "Wielkość sterująca",
+    "Wielkość wejściowa używana bezpośrednio do realizacji sterowania, np. moc grzałki, napięcie silnika, otwarcie zaworu."
+  ],
+  [
+    "Obiekt sterowania",
+    "Obiekt, na który oddziałuje urządzenie sterujące."
+  ],
+  [
+    "Wielkość sterowana",
+    "Wielkość wyjściowa, której przebieg lub wartość jest celem sterowania, np. temperatura, prędkość, poziom cieczy."
+  ],
+  [
+    "Wielkości pomocnicze",
+    "Pozostałe wielkości wyjściowe obiektu, które nie są głównym celem sterowania, ale mogą służyć do obserwacji lub kontroli."
+  ],
+  [
+    "Zakłócenie",
+    "Przypadkowe lub niezamierzone oddziaływanie otoczenia na obiekt, które utrudnia realizację celu sterowania."
+  ],
+  [
+    "Wielkość zakłócająca",
+    "Wielkość fizyczna wywołująca zakłócenie, np. zmiana obciążenia silnika, otwarcie okna, zmiana ciśnienia zasilania."
+  ],
+  [
+    "Układ sterowania",
+    "Połączenie urządzenia sterującego z obiektem sterowania. Jego zadaniem jest realizacja określonego celu sterowania."
+  ],
+  [
+    "Układ otwarty",
+    "Układ, w którym urządzenie sterujące nie otrzymuje informacji o aktualnym wyniku działania obiektu. Steruje w ciemno, według wcześniej ustalonego sposobu."
+  ],
+  [
+    "Układ zamknięty",
+    "Układ, w którym informacja o aktualnej wartości wielkości sterowanej wraca do urządzenia sterującego i wpływa na dalsze sterowanie."
+  ],
+  [
+    "Sprzężenie zwrotne",
+    "Oddziaływanie wyniku działania obiektu z powrotem na urządzenie sterujące. Dzięki niemu układ może korygować swoje działanie."
+  ],
+  [
+    "Regulacja",
+    "Sterowanie ze sprzężeniem zwrotnym, czyli sterowanie w układzie zamkniętym. Układ obserwuje wynik i reaguje na różnicę między stanem pożądanym a rzeczywistym."
+  ],
+  [
+    "Regulator",
+    "Urządzenie sterujące w układzie regulacji. Na podstawie uchybu wyznacza sygnał sterujący dla obiektu."
+  ],
+  [
+    "Wielkość regulowana",
+    "Wielkość sterowana w układzie regulacji, np. temperatura, prędkość, ciśnienie, poziom."
+  ],
+  [
+    "Ujemne sprzężenie zwrotne",
+    "Sprzężenie, w którym reakcja układu przeciwdziała odchyleniu wielkości regulowanej od wartości zadanej. Jest typowe dla układów regulacji."
+  ],
+  [
+    "Sygnał",
+    "Wielkość niosąca informację w układzie automatyki. Może być elektryczna, mechaniczna, pneumatyczna, cyfrowa itd."
+  ],
+  [
+    "Sygnał zadający",
+    "Informacja o wartości pożądanej — mówi układowi, jaki wynik ma osiągnąć."
+  ],
+  [
+    "Sygnał sterujący",
+    "Sygnał wysyłany przez regulator lub urządzenie sterujące do obiektu."
+  ],
+  [
+    "Sygnał zakłócający",
+    "Sygnał lub wielkość reprezentująca wpływ zakłócenia na obiekt."
+  ],
+  [
+    "Sygnał wyjściowy / regulowany",
+    "Informacja o aktualnym wyniku pracy obiektu, np. zmierzona temperatura lub prędkość."
+  ],
+  [
+    "Uchyb (odchyłka)",
+    "Różnica między wartością zadaną a aktualną wartością rzeczywistą wielkości regulowanej."
+  ],
+  [
+    "Inercja obiektu",
+    "Właściwość powodująca, że obiekt nie reaguje natychmiast na zmianę sygnału wejściowego."
+  ],
+  [
+    "Transmitancja",
+    "Matematyczny opis zależności między sygnałem wejściowym a wyjściowym układu w dziedzinie operatorowej: G(s)=Y(s)/U(s), przy zerowych warunkach początkowych."
+  ]
+];
+const problems = [
+  [
+    "Czy uchyb równy zero oznacza, że regulator nic nie robi?",
+    "Nie. Uchyb równy zero oznacza, że aktualna wartość wielkości regulowanej jest równa wartości zadanej. Regulator może nadal podawać niezerowy sygnał sterujący potrzebny do utrzymania tego stanu. Przykład: pokój ma zadane 22°C, a grzejnik nadal dostarcza ciepło, aby wyrównać straty ciepła do otoczenia."
+  ],
+  [
+    "Czy układ zamknięty zawsze jest stabilny?",
+    "Nie. Samo sprzężenie zwrotne nie gwarantuje stabilności. Źle dobrany regulator, jego parametry lub opóźnienia w układzie mogą prowadzić do oscylacji, a nawet narastania odchyleń. Również układ z ujemnym sprzężeniem zwrotnym może być niestabilny."
+  ],
+  [
+    "Czym różni się inercja od opóźnienia transportowego?",
+    "Inercja oznacza, że po zmianie wejścia wyjście zmienia się stopniowo i potrzebuje czasu na osiągnięcie nowego stanu. W idealnym obiekcie inercyjnym bez opóźnienia zmiana zaczyna się od razu. Opóźnienie transportowe oznacza, że wpływ zmiany wejścia pojawia się na wyjściu dopiero po określonym czasie. Obiekt może jednocześnie mieć inercję i opóźnienie."
+  ],
+  [
+    "Obiekt ma dużą stałą czasową. Co to oznacza?",
+    "Duża stała czasowa oznacza, że obiekt wolno reaguje na zmianę sygnału wejściowego i potrzebuje dużo czasu, aby zbliżyć się do nowego stanu ustalonego. Nie oznacza to automatycznie dużego opóźnienia transportowego: odpowiedź może zaczynać się od razu, lecz narastać powoli."
+  ],
+  [
+    "Dlaczego dodatnie sprzężenie zwrotne może prowadzić do niestabilności?",
+    "W dodatnim sprzężeniu zwrotnym sygnał wracający z wyjścia może wzmacniać zmianę, która go wywołała. Zwiększenie wyjścia powoduje wtedy kolejne zwiększenie pobudzenia i dalszy wzrost wyjścia. Jeżeli to wzmacnianie jest dostatecznie silne, odchylenia mogą narastać i układ może stać się niestabilny. Dodatnie sprzężenie nie oznacza jednak, że każdy taki układ musi być niestabilny."
+  ],
+  [
+    "Czy czujnik i przetwornik to zawsze dokładnie to samo?",
+    "Nie. Czujnik wykrywa lub mierzy określoną wielkość fizyczną, a przetwornik zamienia jedną wielkość lub postać sygnału na inną. Czujnik może sam być przetwornikiem albo stanowić część większego przetwornika pomiarowego. Na przykład termistor reaguje zmianą rezystancji na zmianę temperatury, a układ pomiarowy może przekształcić tę zmianę w napięcie lub sygnał cyfrowy."
+  ]
+];
+
+const quiz = [
+ {q:"Termostat mierzy temperaturę i na tej podstawie steruje grzejnikiem. Jaki to układ?", a:["Otwarty","Zamknięty","Ręczny","Bez sprzężenia"], c:1, e:"Bo wynik pomiaru wraca do układu i wpływa na sterowanie."},
+ {q:"Wartość zadana to 25°C, a rzeczywista 21°C. Jaki jest uchyb?", a:["4°C","46°C","−4°C","0°C"], c:0, e:"e = zadana − rzeczywista = 25 − 21 = 4°C."},
+ {q:"Otwarte okno podczas ogrzewania pokoju to:", a:["Wielkość zadana","Regulator","Zakłócenie","Transmitancja"], c:2, e:"Okno powoduje niezamierzoną zmianę warunków obiektu."},
+ {q:"Co oznacza duża stała czasowa obiektu?", a:["Obiekt reaguje bardzo szybko","Obiekt reaguje wolno","Układ jest niestabilny","Brak sprzężenia zwrotnego"], c:1, e:"Im większa stała czasowa, tym wolniejsza odpowiedź obiektu."},
+ {q:"Które sprzężenie jest typowe dla układów regulacji?", a:["Dodatnie","Losowe","Ujemne","Brak sprzężenia"], c:2, e:"Ujemne sprzężenie przeciwdziała odchyleniu od wartości zadanej."},
+ {q:"Czy uchyb równy zero oznacza, że regulator na pewno daje 0 na wyjściu?", a:["Tak","Nie"], c:1, e:"Może nadal podawać sygnał potrzebny do utrzymania stanu."},
+ {q:"Które zdanie najlepiej opisuje inercję?", a:["Brak reakcji przez 10 s, potem nagła reakcja","Powolna, stopniowa reakcja po zmianie wejścia","Błąd czujnika","Dodatnie sprzężenie"], c:1, e:"Inercja oznacza stopniowe reagowanie obiektu."},
+ {q:"Czy układ zamknięty zawsze jest stabilny?", a:["Tak","Nie"], c:1, e:"Źle dobrane parametry regulatora mogą powodować oscylacje lub niestabilność."},
+ {q:"Co robi regulator?", a:["Tylko mierzy temperaturę","Porównuje stan zadany z rzeczywistym i wyznacza sterowanie","Jest zawsze czujnikiem","Usuwa wszystkie zakłócenia"], c:1, e:"Regulator na podstawie uchybu wyznacza sygnał sterujący."},
+ {q:"Co najlepiej opisuje transmitancję?", a:["Rodzaj czujnika","Zależność matematyczna między wejściem i wyjściem","Rodzaj zakłócenia","Moc regulatora"], c:1, e:"Transmitancja opisuje zachowanie układu w dziedzinie operatorowej."}
+];
+const $=id=>document.getElementById(id);
+const pad=n=>String(n).padStart(2,'0');
+function makeIcon(name,extra=''){
+ const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('class','icon '+extra);svg.setAttribute('aria-hidden','true');
+ const use=document.createElementNS('http://www.w3.org/2000/svg','use');use.setAttribute('href','#i-'+name);svg.append(use);return svg;
+}
+const modeInfo={
+ fiszki:['Fiszki','Przypomnij sobie definicję. Odwróć kartę i sprawdź odpowiedź.'],
+ quiz:['Sprawdź, co pamiętasz','10 pytań z przykładami. Po każdej odpowiedzi zobaczysz wyjaśnienie i pełne definicje.'],
+ scenki:['Automatyka w praktyce','Zobacz, jak pojęcia z notatek działają na przykładzie ogrzewania pokoju.'],
+ definicje:['Pełne definicje','Wszystkie 31 pojęć z Twoich notatek, bez skracania treści.'],
+ pytania:['Pytania problemowe','Najpierw odpowiedz własnymi słowami. Potem rozwiń pytanie i porównaj odpowiedź.'],
+ powtorka:['Szybka powtórka','Najważniejsze zależności, które warto zapamiętać.']
+};
+let currentTab='fiszki';
+const tabButtons=[...document.querySelectorAll('.nav-btn')];
+function setTab(name){
+ currentTab=name;
+ tabButtons.forEach(b=>{const active=b.dataset.tab===name;b.classList.toggle('active',active);b.setAttribute('aria-selected',String(active));b.tabIndex=active?0:-1;});
+ document.querySelectorAll('.panel').forEach(p=>{const active=p.id===name;p.hidden=!active;p.classList.toggle('active',active);});
+ $('pageTitle').textContent=modeInfo[name][0];$('pageDescription').textContent=modeInfo[name][1];
+ $('breadcrumbMode').textContent={fiszki:'Fiszki',quiz:'Quiz',scenki:'Scenki',definicje:'Pełne definicje',pytania:'Pytania',powtorka:'Powtórka'}[name];
+}
+tabButtons.forEach((b,index)=>{
+ b.addEventListener('click',()=>setTab(b.dataset.tab));
+ b.addEventListener('keydown',e=>{
+  let next=index;
+  if(e.key==='ArrowRight'||e.key==='ArrowDown')next=(index+1)%tabButtons.length;
+  else if(e.key==='ArrowLeft'||e.key==='ArrowUp')next=(index-1+tabButtons.length)%tabButtons.length;
+  else if(e.key==='Home')next=0;else if(e.key==='End')next=tabButtons.length-1;else return;
+  e.preventDefault();tabButtons[next].focus();setTab(tabButtons[next].dataset.tab);
+ });
+});
+let flashcards=definitions,fi=0,flipped=false;
+function showFlash(){
+ const isDefinition=definitions.includes(flashcards[fi]);
+ $('flashText').textContent=flashcards[fi][flipped?1:0];
+ $('flashcard').classList.toggle('definition',flipped);$('flashcard').setAttribute('aria-pressed',String(flipped));
+ $('flashcard').setAttribute('aria-label',(flipped?'Odpowiedź. ':'Pytanie. ')+flashcards[fi][flipped?1:0]+'. Odwróć fiszkę.');
+ $('flashSide').textContent=flipped?(isDefinition?'Pełna definicja':'Odpowiedź'):(isDefinition?'Pojęcie':'Pytanie problemowe');
+ $('flipButton').textContent=flipped?'Pokaż '+(isDefinition?'pojęcie':'pytanie'):'Pokaż '+(isDefinition?'definicję':'odpowiedź');
+ $('flashHintText').textContent=flipped?'Kliknij, aby wrócić do '+(isDefinition?'pojęcia':'pytania'):'Kliknij kartę, aby zobaczyć '+(isDefinition?'pełną definicję':'odpowiedź');
+ $('flashCount').textContent=`${pad(fi+1)} / ${pad(flashcards.length)}`;$('flashPosition').textContent=`${fi+1} z ${flashcards.length}`;
+ $('flashBar').style.width=`${(fi+1)/flashcards.length*100}%`;$('flashProgress').setAttribute('aria-valuemax',flashcards.length);$('flashProgress').setAttribute('aria-valuenow',fi+1);
+ $('flashText').classList.remove('reveal');void $('flashText').offsetWidth;$('flashText').classList.add('reveal');
+}
+function flipFlash(){flipped=!flipped;showFlash()}
+function nextFlash(){fi=(fi+1)%flashcards.length;flipped=false;showFlash()}
+function prevFlash(){fi=(fi-1+flashcards.length)%flashcards.length;flipped=false;showFlash()}
+$('flipButton').onclick=flipFlash;$('prevFlash').onclick=prevFlash;$('nextFlash').onclick=nextFlash;
+$('flashcard').onclick=()=>{if(!window.getSelection()?.toString())flipFlash()};
+$('flashcard').onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();flipFlash()}};
+document.addEventListener('keydown',e=>{
+ if(currentTab!=='fiszki'||e.altKey||e.ctrlKey||e.metaKey||e.repeat)return;
+ const tag=document.activeElement.tagName;
+ if(['INPUT','SELECT','TEXTAREA'].includes(tag)||document.activeElement.closest('.tabs'))return;
+ if(e.key==='ArrowRight'){e.preventDefault();nextFlash()}
+ else if(e.key==='ArrowLeft'){e.preventDefault();prevFlash()}
+ else if(e.key===' '&&tag!=='BUTTON'){e.preventDefault();flipFlash()}
+});
+$('flashDeck').onchange=e=>{flashcards=e.target.value==='definitions'?definitions:e.target.value==='problems'?problems:[...definitions,...problems];fi=0;flipped=false;showFlash()};
+showFlash();
+function renderDefinitions(){
+ const query=$('definitionSearch').value.toLocaleLowerCase('pl').trim();const list=$('definitionsList');list.replaceChildren();
+ const filtered=definitions.filter(d=>d.join(' ').toLocaleLowerCase('pl').includes(query));
+ filtered.forEach(d=>{
+  const article=document.createElement('article');article.className='definition-item';
+  const index=document.createElement('span');index.className='term-number mono';index.textContent=pad(definitions.indexOf(d)+1);
+  const body=document.createElement('div');const heading=document.createElement('h3');heading.textContent=d[0];const p=document.createElement('p');p.textContent=d[1];body.append(heading,p);article.append(index,body);list.append(article);
+ });
+ if(!filtered.length){const p=document.createElement('p');p.className='empty';p.textContent='Brak wyników. Wpisz inne pojęcie lub słowo.';list.append(p)}
+ $('definitionCount').textContent=`${filtered.length} / ${definitions.length} pojęć`;
+}
+$('definitionSearch').oninput=renderDefinitions;renderDefinitions();
+problems.forEach((p,i)=>{
+ const detail=document.createElement('details');detail.className='problem';const summary=document.createElement('summary');const index=document.createElement('span');index.className='question-index mono';index.textContent=pad(i+1);const title=document.createElement('span');title.textContent=p[0];summary.append(index,title,makeIcon('plus','plus'));const answer=document.createElement('p');answer.className='problem-answer';answer.textContent=p[1];detail.append(summary,answer);$('problemsList').append(detail);
+});
+const recap=[['Automatyka','Sterowanie procesami bez ciągłego udziału człowieka.'],['Obiekt','To, czym sterujemy.'],['Układ otwarty','Nie zna wyniku swojego działania.'],['Układ zamknięty','Mierzy wynik i go wykorzystuje.'],['Sprzężenie zwrotne','Wynik wraca do regulatora.'],['Regulacja','Sterowanie ze sprzężeniem zwrotnym.'],['Uchyb','Wartość zadana − wartość rzeczywista.'],['Ujemne sprzężenie','Zmniejsza odchylenie.'],['Dodatnie sprzężenie','Może zwiększać odchylenie i destabilizować układ.'],['Inercja','Obiekt reaguje stopniowo.'],['Duża stała czasowa','Wolna reakcja obiektu.'],['Transmitancja','Matematycznie opisuje zależność wyjścia od wejścia.'],['Czujnik a przetwornik','Czujnik mierzy, a przetwornik zamienia sygnał lub wielkość na inną. Nie zawsze są tym samym.']];
+recap.forEach(([term,text])=>{const a=document.createElement('article');a.className='recap-item';const h=document.createElement('h3');h.textContent=term;const p=document.createElement('p');p.textContent=text;a.append(h,p);$('recapList').append(a)});
+const quizDefinitionTerms=[['Układ zamknięty','Sprzężenie zwrotne'],['Uchyb (odchyłka)'],['Zakłócenie','Wielkość zakłócająca'],[],['Ujemne sprzężenie zwrotne'],['Uchyb (odchyłka)'],['Inercja obiektu'],['Układ zamknięty'],['Regulator'],['Transmitancja']];
+const quizProblemIndex={3:3,5:0,6:2,7:1};
+function showQuizDefinitions(){
+ const box=$('quizDefinitions');box.replaceChildren();const entries=(quizDefinitionTerms[qi]||[]).map(term=>({entry:definitions.find(d=>d[0]===term),label:'Pełna definicja z notatek'}));
+ if(quizProblemIndex[qi]!==undefined)entries.push({entry:problems[quizProblemIndex[qi]],label:'Pełna odpowiedź'});
+ entries.forEach(({entry,label})=>{const note=document.createElement('div');note.className='quiz-definition';const caption=document.createElement('small');caption.textContent=label;const title=document.createElement('p');const strong=document.createElement('strong');strong.textContent=entry[0];title.append(strong);const description=document.createElement('p');description.textContent=entry[1];note.append(caption,title,description);box.append(note)});
+}
+let qi=0,correct=0,answered=false,finished=false;
+function renderQuiz(){
+ const q=quiz[qi];answered=false;$('quizDefinitions').replaceChildren();$('quizQ').textContent=q.q;$('quizAnswers').replaceChildren();
+ q.a.forEach((x,i)=>{const b=document.createElement('button');b.type='button';b.className='answer';const letter=document.createElement('span');letter.className='answer-letter mono';letter.textContent='ABCD'[i];letter.setAttribute('aria-hidden','true');const text=document.createElement('span');text.textContent=x;b.append(letter,text);b.onclick=()=>answerQuiz(i,b);$('quizAnswers').append(b)});
+ $('quizFeedback').replaceChildren();delete $('quizFeedback').dataset.result;$('nextQ').hidden=true;$('nextQ').textContent='Następne pytanie';$('score').textContent=`Wynik: ${correct} / ${qi}`;$('quizPosition').textContent=`Pytanie ${pad(qi+1)} / ${pad(quiz.length)}`;$('quizBar').style.width=`${qi/quiz.length*100}%`;
+}
+function answerQuiz(i,button){
+ if(answered)return;answered=true;const q=quiz[qi];const buttons=[...document.querySelectorAll('#quizAnswers button')];buttons[q.c].classList.add('good');buttons[q.c].querySelector('.answer-letter').textContent='✓';
+ if(i!==q.c){button.classList.add('bad');button.querySelector('.answer-letter').textContent='×'}else correct++;
+ buttons.forEach(b=>b.disabled=true);const good=i===q.c;const title=document.createElement('strong');title.textContent=good?'Dobra odpowiedź.':'Poprawna odpowiedź: '+q.a[q.c]+'.';const explanation=document.createElement('p');explanation.textContent=q.e;$('quizFeedback').replaceChildren(title,explanation);$('quizFeedback').dataset.result=good?'good':'bad';
+ showQuizDefinitions();$('score').textContent=`Wynik: ${correct} / ${qi+1}`;$('quizBar').style.width=`${(qi+1)/quiz.length*100}%`;$('nextQ').hidden=false;$('nextQ').textContent=qi===quiz.length-1?'Zobacz wynik':'Następne pytanie';
+}
+function nextQuiz(){
+ if(finished){qi=0;correct=0;finished=false;renderQuiz();return}
+ if(!answered)return;qi++;
+ if(qi<quiz.length){renderQuiz();return}
+ finished=true;$('quizDefinitions').replaceChildren();$('quizAnswers').replaceChildren();$('quizPosition').textContent='Quiz ukończony';
+ const result=document.createElement('div');result.className='quiz-summary-number';result.textContent=`${correct} / ${quiz.length}`;const text=document.createElement('span');text.textContent=correct>=8?'Dobra robota. Znasz podstawy.':'Jeszcze chwila powtórki i będzie lepiej.';$('quizQ').replaceChildren(result,text);
+ $('quizFeedback').textContent=correct>=8?'Dla utrwalenia zajrzyj do pytań problemowych.':'Wróć do pełnych definicji i spróbuj jeszcze raz.';delete $('quizFeedback').dataset.result;$('nextQ').textContent='Spróbuj ponownie';$('nextQ').hidden=false;$('quizBar').style.width='100%';
+}
+$('nextQ').onclick=nextQuiz;renderQuiz();
+</script>
+</body>
+</html>
